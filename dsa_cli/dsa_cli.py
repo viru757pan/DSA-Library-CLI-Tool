@@ -21,6 +21,12 @@ subparsers.add_parser("list", help="List all stored problems")
 search = subparsers.add_parser("search", help="Search problems")
 search.add_argument("--keyword", required=True)
 
+# Delete command
+delete_parser = subparsers.add_parser(
+    "delete", help="Delete a problem by title")
+delete_parser.add_argument("--title", required=True,
+                           help="Title of the problem to delete")
+
 
 def main():
     args = parser.parse_args()
@@ -51,5 +57,13 @@ def main():
                     f"🔍 {p['title']} - {p['difficulty']} | {', '.join(p['tags'])}")
         else:
             print("⚠ No matching records found.")
+
+    elif args.command == "delete":
+        deleted = manager.delete_problem(args.title)
+        if deleted:
+            print(f"🗑️ Deleted: \"{args.title}\" successfully!")
+        else:
+            print(f"⚠️ Problem \"{args.title}\" not found.")
+
     else:
         parser.print_help()

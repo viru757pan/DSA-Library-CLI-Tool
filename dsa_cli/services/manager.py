@@ -46,3 +46,18 @@ class DSAManager:
     def search(self, keyword):
         data = self.load_data()
         return [p for p in data["problems"] if keyword.lower() in p["title"].lower() or keyword.lower() in " ".join(p["tags"]).lower()]
+
+    def delete_problem(self, title):
+        data = self.load_data()
+        problems = data.get("problems", [])
+
+        updated = [p for p in problems if p["title"].lower() != title.lower()]
+
+        # If nothing removed
+        if len(updated) == len(problems):
+            return False
+
+        # Save updated list
+        data["problems"] = updated
+        self.save_data(data)
+        return True

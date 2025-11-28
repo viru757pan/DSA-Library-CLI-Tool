@@ -8,7 +8,17 @@
                 "hash"
             ],
             "filepath": "solutions/two_sum.py",
-            "created_at": "2025-11-28 14:59:33"
+            "created_at": "2025-11-28 15:19:59"
+        },
+        {
+            "title": "Binary Search",
+            "difficulty": "medium",
+            "tags": [
+                "search",
+                "array"
+            ],
+            "filepath": "solutions/binary_search.py",
+            "created_at": "2025-11-28 15:21:44"
         }
     ]
 }
