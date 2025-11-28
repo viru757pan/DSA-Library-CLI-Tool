@@ -44,6 +44,13 @@ python dsa_cli.py search --keyword binary
 yaml
 Copy code
 
+### 3️⃣ Delete by keyword
+
+python dsa_cli.py delete --keyword binary
+
+yaml
+Copy code
+
 ---
 
 ## 🗂 Folder Structure
